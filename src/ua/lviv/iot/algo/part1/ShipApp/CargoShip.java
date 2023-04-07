@@ -5,6 +5,8 @@ import lombok.Setter;
 @Setter
 @Getter
 public  abstract class CargoShip extends Ship {
+    public static final int MINUTES_IN_HOUR = 60;
+    public static final int AVERAGE_LOAD_TIME = 20;
     public double tonnage;
     protected String typeOfCargo;
 

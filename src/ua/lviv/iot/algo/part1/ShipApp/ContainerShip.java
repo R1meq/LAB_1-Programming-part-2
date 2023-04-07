@@ -25,10 +25,7 @@ public class ContainerShip extends CargoShip{
 
     @Override
     public double calculateLoadTime() {
-        int loadtime = 60;
-        double load = tonnage/20;
-
-        return loadtime * load;
+        return MINUTES_IN_HOUR * tonnage/AVERAGE_LOAD_TIME;
     }
 
     @Override

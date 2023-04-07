@@ -3,9 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ShipManager extends addShip {
-
-    private final static List<Ship> ships  = new ArrayList<>();
+public class ShipManager extends AbstractShipManager {
+    private List<Ship> ships  = new ArrayList<>();
 
     @Override
     public void addShip(Ship ship) {
@@ -29,17 +28,17 @@ public class ShipManager extends addShip {
 
         manager.addShip(new TunkerShip(10.6,"gasoline",20.4,"TunkerShip 1",
                 "Mike Shinoda","Odessa",13.5,50.2,40.2,
-                11.5,15,28));
+                11.5,15,28,44.5));
 
         manager.addShip(new TunkerShip(16.9,"crude oil",10.5,"TunkerShip 2",
                 "Joe Hahn","Lisbon",15,60.2,20.6,
-                13.6,20,36));
+                13.6,20,36,65.7));
 
-        manager.addShip(new ROROShip(15,12.7,"cars",11.6,"ROROShip 1",
+        manager.addShip(new RoroShip(15,12.7,"cars",11.6,"ROROShip 1",
                 " Brad Delson","LA",18.6,15.6,12.5,
                 16.6,17,21));
 
-        manager.addShip(new ROROShip(23,15.2,"trucks",12.7,"ROROShip 2",
+        manager.addShip(new RoroShip(23,15.2,"trucks",12.7,"ROROShip 2",
                 " Dave Farrell","Boston",22,25.6,23.6,
                 21,18,22));
 
@@ -59,12 +58,12 @@ public class ShipManager extends addShip {
                 "Mr Beast","Singapore",24.0,100,80,
                 23.0,45,36));
 
-        List<Ship> ShipWithCapacityGreaterThan = manager.findAllWithMoreThanLoad(50);
-        for (Ship ship:ShipWithCapacityGreaterThan) {
+        List<Ship> shipWithCapacityGreaterThan = manager.findAllWithMoreThanLoad(50);
+        for (Ship ship:shipWithCapacityGreaterThan) {
             System.out.println(ship);
         }
 
-        List<Ship> ShipWithLoadGreaterThan= manager.findAllWithMoreThanCapacity(65);
-        ShipWithLoadGreaterThan.stream().forEach(a->System.out.println(a));
+        List<Ship> shipWithLoadGreaterThan= manager.findAllWithMoreThanCapacity(65);
+        shipWithLoadGreaterThan.stream().forEach(a->System.out.println(a));
     }
 }

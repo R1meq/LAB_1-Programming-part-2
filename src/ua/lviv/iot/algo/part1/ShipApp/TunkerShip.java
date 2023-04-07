@@ -1,15 +1,21 @@
 package ua.lviv.iot.algo.part1.ShipApp;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 public class TunkerShip extends CargoShip{
+    private double volumeInBarrels;
 
     TunkerShip(double tonnage, String typeOfCargo, double id, String name,
                String captain, String currentPort, double maxSpeed,
                double maxCapacity, double currentLoad, double currentSpeed,
-               int crewCount, int supportStaff)
+               int crewCount, int supportStaff,double volumeInBarrels)
     {
         super(tonnage, typeOfCargo, id, name, captain, currentPort,
                 maxSpeed, maxCapacity, currentLoad, currentSpeed,
                 crewCount, supportStaff);
+        this.volumeInBarrels = volumeInBarrels;
     }
 
     @Override
@@ -19,10 +25,7 @@ public class TunkerShip extends CargoShip{
 
     @Override
     public double calculateLoadTime() {
-        int loadtime = 60;
-        double load = tonnage/20;
-
-        return loadtime * load;
+        return MINUTES_IN_HOUR * tonnage/AVERAGE_LOAD_TIME;
     }
 
     @Override

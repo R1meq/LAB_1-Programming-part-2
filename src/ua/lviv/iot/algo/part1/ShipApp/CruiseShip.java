@@ -17,7 +17,6 @@ public class CruiseShip extends Ship {
         this.passengersCount = passengersCount;
     }
 
-
     @Override
     public int getTotalPeopleCount() {
         return passengersCount + crewCount + supportStaff;
