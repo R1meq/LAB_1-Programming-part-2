@@ -19,18 +19,14 @@ public class Ship {
 
     public String dock(String port)
     {
-        return port;
+        return currentPort = port;
     }
 
-    public double setSpeed(double speed)
+    public void setSpeed(double speed)
     {
         if(speed >= 0.0) {
-            return speed;
+            currentSpeed = speed;
         }
-        else {
-            System.out.println("incorrect speed");
-        }
-        return speed;
     }
 
     public void load(double weight)
@@ -39,7 +35,7 @@ public class Ship {
             currentLoad += weight;
         }
         else {
-            System.out.println("a ship cannot carry such a weight");
+            currentLoad = maxCapacity;
         }
     }
 
@@ -49,7 +45,7 @@ public class Ship {
             currentLoad -= weight;
         }
         else {
-            System.out.println("such weight does not exist to unload");
+            currentLoad = 0.0;
         }
     }
 
@@ -63,13 +59,10 @@ public class Ship {
 
     public static void main(String[] args)
     {
-        int lengthOfArray = 4;
-        Ship[] ships = new Ship[lengthOfArray];
-        ships[0] = new Ship();
-        ships[1] = new Ship(4.2,"Meteora","Mike Shinoda",
+        Ship ship1 = new Ship();
+        Ship ship2 = new Ship(4.2,"Meteora","Mike Shinoda",
                 "Fort Minor", 18.2,4.5,3.1,10.4);
-        ships[2] = getInstance();
-        ships[3] = getInstance();
+        Ship[] ships = {ship1,ship2,getInstance(),getInstance()};
         ships[1].load(1.2);
         ships[1].unload(2.5);
 
