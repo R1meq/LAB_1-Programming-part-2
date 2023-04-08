@@ -27,4 +27,4 @@ public  abstract class CargoShip extends Ship {
                 "typeOfCargo=" + typeOfCargo +
                 ") " + super.toString();
     }
-};
+}

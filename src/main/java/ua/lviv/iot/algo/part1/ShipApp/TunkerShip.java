@@ -31,6 +31,7 @@ public class TunkerShip extends CargoShip{
     @Override
     public String toString() {
         return  "TunkerShip(" +
-                ")  " + super.toString();
+                "volumeinBarrels = " + volumeInBarrels +
+                ") " + super.toString();
     }
 }
