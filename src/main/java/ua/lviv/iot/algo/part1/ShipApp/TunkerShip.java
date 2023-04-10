@@ -4,14 +4,15 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class TunkerShip extends CargoShip{
+public class TunkerShip extends CargoShip {
     private double volumeInBarrels;
 
-    TunkerShip(double tonnage, String typeOfCargo, double id, String name,
-               String captain, String currentPort, double maxSpeed,
-               double maxCapacity, double currentLoad, double currentSpeed,
-               int crewCount, int supportStaff,double volumeInBarrels)
-    {
+    TunkerShip(final double tonnage, final String typeOfCargo,
+               final double id, final String name, final String captain,
+               final String currentPort, final double maxSpeed,
+               final double maxCapacity, final double currentLoad,
+               final double currentSpeed, final int crewCount,
+               final int supportStaff, final double volumeInBarrels) {
         super(tonnage, typeOfCargo, id, name, captain, currentPort,
                 maxSpeed, maxCapacity, currentLoad, currentSpeed,
                 crewCount, supportStaff);
@@ -20,18 +21,20 @@ public class TunkerShip extends CargoShip{
 
     @Override
     public int getTotalPeopleCount() {
-        return crewCount + supportStaff;
+        return getCrewCount() + getSupportStaff();
     }
 
     @Override
     public double calculateLoadTime() {
-        return MINUTES_IN_HOUR * tonnage/AVERAGE_LOAD_TIME;
+        return MINUTES_IN_HOUR * getTonnage() / AVERAGE_LOAD_TIME;
     }
 
     @Override
     public String toString() {
-        return  "TunkerShip(" +
-                "volumeinBarrels = " + volumeInBarrels +
+        return  "TunkerShip("
+                +
+                "volumeinBarrels = " + volumeInBarrels
+                +
                 ") " + super.toString();
     }
 }

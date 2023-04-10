@@ -7,19 +7,19 @@ public class ShipManager extends AbstractShipManager {
     private final List<Ship> ships = new ArrayList<>();
 
     @Override
-    public void addShip(Ship ship) {
+    public void addShip(final Ship ship) {
         ships.add(ship);
     }
 
     @Override
-    public List<Ship> findAllWithMoreThanLoad(double currentLoad) {
+    public List<Ship> findAllWithMoreThanLoad(final double currentLoad) {
         return ships.stream().filter(
-                (n) -> (n.currentLoad) > currentLoad).toList();
+                (n) -> (n.getCurrentLoad()) > currentLoad).toList();
     }
 
     @Override
-    public List<Ship> findAllWithMoreThanCapacity(double maxCapacity) {
+    public List<Ship> findAllWithMoreThanCapacity(final double maxCapacity) {
         return ships.stream().filter(
-                (n) -> (n.maxCapacity) > maxCapacity).toList();
+                (n) -> (n.getMaxCapacity()) > maxCapacity).toList();
     }
 }

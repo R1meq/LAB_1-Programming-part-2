@@ -5,13 +5,14 @@ import lombok.Setter;
 @Setter
 @Getter
 public class CruiseShip extends Ship {
+    public static final int AVERAGE_LOAD_TIME_FOR_PASSENGER = 5;
     private int passengersCount;
 
-    CruiseShip(int passengersCount,double id,String name, String captain,
-               String currentPort,double maxSpeed,
-               double maxCapacity, double currentLoad,
-               double currentSpeed, int crewCount,int supportStaff)
-    {
+    CruiseShip(final int passengersCount, final double id, final String name,
+               final String captain, final String currentPort,
+               final double maxSpeed, final double maxCapacity,
+               final double currentLoad, final double currentSpeed,
+               final int crewCount, final int supportStaff) {
         super(id, name, captain, currentPort, maxSpeed, maxCapacity,
                 currentLoad, currentSpeed, crewCount, supportStaff);
         this.passengersCount = passengersCount;
@@ -19,18 +20,20 @@ public class CruiseShip extends Ship {
 
     @Override
     public int getTotalPeopleCount() {
-        return passengersCount + crewCount + supportStaff;
+        return passengersCount + getCrewCount() + getSupportStaff();
     }
 
     @Override
     public double calculateLoadTime() {
-        return passengersCount * 5;
+        return passengersCount * AVERAGE_LOAD_TIME_FOR_PASSENGER;
     }
 
     @Override
     public String toString() {
-        return "CruiseShip(" +
-                "passengersCount=" + passengersCount +
+        return "CruiseShip("
+                +
+                "passengersCount=" + passengersCount
+                +
                 ") "  + super.toString();
     }
 }
