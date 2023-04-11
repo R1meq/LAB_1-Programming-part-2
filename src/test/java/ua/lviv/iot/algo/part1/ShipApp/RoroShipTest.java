@@ -68,8 +68,11 @@ public class RoroShipTest {
 
     @Test
     public void toStringTest() {
-        Assertions.assertEquals("ROROShip(vehicles=15) CargoShip(tonnage=12.7typeOfCargo=cars)" +
-                " Ship(id=11.6, name=ROROShip 1, captain= Brad Delson, currentPort=LA, maxSpeed=18.6, maxCapacity=15.6," +
-                " currentLoad=12.5, currentSpeed=16.6, crewCount=17, supportStaff=21)",roroShip.toString());
+        Assertions.assertEquals("ROROShip(vehicles=15) CargoShip" +
+                "(tonnage=12.7typeOfCargo=cars)" +
+                " Ship(id=11.6, name=ROROShip 1, captain= Brad Delson," +
+                " currentPort=LA, maxSpeed=18.6, maxCapacity=15.6," +
+                " currentLoad=12.5, currentSpeed=16.6, crewCount=17," +
+                " supportStaff=21)",roroShip.toString());
     }
 }

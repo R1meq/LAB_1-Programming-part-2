@@ -68,9 +68,12 @@ public class ConteinerShipTest {
 
     @Test
     public void toStringTest(){
-       Assertions.assertEquals("ContainerShip(containers=2) CargoShip(tonnage=2.0typeOfCargo=raw materials)" +
-               " Ship(id=15.6, name=ContainerShip 1, captain=Rob Bourdon, currentPort=Lviv, maxSpeed=19.5," +
-               " maxCapacity=125.0, currentLoad=102.0, currentSpeed=18.5, crewCount=20," +
+       Assertions.assertEquals("ContainerShip(containers=2) CargoShip" +
+               "(tonnage=2.0typeOfCargo=raw materials)" +
+               " Ship(id=15.6, name=ContainerShip 1, captain=Rob Bourdon, " +
+               "currentPort=Lviv, maxSpeed=19.5," +
+               " maxCapacity=125.0, currentLoad=102.0, currentSpeed=18.5," +
+               " crewCount=20," +
                " supportStaff=35)",containerShip.toString());
     }
 }

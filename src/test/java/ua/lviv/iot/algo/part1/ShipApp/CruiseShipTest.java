@@ -67,8 +67,11 @@ public class CruiseShipTest {
 
     @Test
     public void toStringTest() {
-        Assertions.assertEquals("CruiseShip(passengersCount=150) Ship(id=10.2, name=CruiseShip 1," +
-                " captain=Cristiano Ronaldo, currentPort=Hong Kong, maxSpeed=21.6, maxCapacity=76.5, currentLoad=76.5," +
-                " currentSpeed=16.7, crewCount=60, supportStaff=30)",cruiseShip.toString());
+        Assertions.assertEquals("CruiseShip(passengersCount=150)" +
+                " Ship(id=10.2, name=CruiseShip 1," +
+                " captain=Cristiano Ronaldo, currentPort=Hong Kong," +
+                " maxSpeed=21.6, maxCapacity=76.5, currentLoad=76.5," +
+                " currentSpeed=16.7, crewCount=60, supportStaff=30)"
+                ,cruiseShip.toString());
     }
 }
