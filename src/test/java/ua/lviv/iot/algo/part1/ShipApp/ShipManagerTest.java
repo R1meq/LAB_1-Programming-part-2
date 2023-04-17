@@ -1,30 +1,19 @@
 package ua.lviv.iot.algo.part1.ShipApp;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
+public class ShipManagerTest {
+    private ShipManager manager;
 
-public class ShipManager extends AbstractShipManager {
-    private List<Ship> ships  = new ArrayList<>();
-
-    @Override
-    public void addShip(Ship ship) {
-        ships.add(ship);
-    }
-
-    @Override
-    public List<Ship> findAllWithMoreThanLoad(double currentLoad) {
-        return ships.stream().filter(
-                (n) -> (n.currentLoad) > currentLoad).toList();
-    }
-
-    @Override
-    public List<Ship> findAllWithMoreThanCapacity(double maxCapacity) {
-        return ships.stream().filter(
-                (n) -> (n.maxCapacity) > maxCapacity).toList();
-    }
-
-    public  static void main(String[] args){
-        ShipManager manager = new ShipManager();
+    @Before
+    public  void setUp(){
+        manager = new ShipManager();
+        List<Ship> ships = new ArrayList<>();
 
         manager.addShip(new TunkerShip(10.6,"gasoline",20.4,"TunkerShip 1",
                 "Mike Shinoda","Odessa",13.5,50.2,40.2,
@@ -43,7 +32,7 @@ public class ShipManager extends AbstractShipManager {
                 21,18,22));
 
         manager.addShip(new ContainerShip(2,2,"raw materials",15.6,"ContainerShip 1",
-                " Rob Bourdon","Lviv",19.5,125,102,
+                "Rob Bourdon","Lviv",19.5,125,102,
                 18.5,20,35));
 
         manager.addShip(new ContainerShip(2,2,"foodstuffs",18.7,"ContainerShip 2",
@@ -51,19 +40,27 @@ public class ShipManager extends AbstractShipManager {
                 15.6,27,45));
 
         manager.addShip(new CruiseShip(150,10.2,"CruiseShip 1",
-                "Cristiano Ronaldo.","Hong Kong",21.6,76.5,76.5,
+                "Cristiano Ronaldo","Hong Kong",21.6,76.5,76.5,
                 16.7,60,30));
 
         manager.addShip(new CruiseShip(200,10.6,"CruiseShip 2",
                 "Mr Beast","Singapore",24.0,100,80,
                 23.0,45,36));
 
-        List<Ship> shipWithCapacityGreaterThan = manager.findAllWithMoreThanLoad(50);
-        for (Ship ship:shipWithCapacityGreaterThan) {
-            System.out.println(ship);
+        for(Ship ship : ships){
+            manager.addShip(ship);
         }
+    }
 
-        List<Ship> shipWithLoadGreaterThan= manager.findAllWithMoreThanCapacity(65);
-        shipWithLoadGreaterThan.stream().forEach(a->System.out.println(a));
+    @Test
+    public void testFindMoreThanLoad(){
+        List<Ship> shipWithLoadGreaterThan = manager.findAllWithMoreThanLoad(50);
+        assertEquals(4,shipWithLoadGreaterThan.size());
+    }
+
+    @Test
+    public void testFindMoreThanCapacity(){
+        List<Ship> shipWithCapacityGreaterThan= manager.findAllWithMoreThanCapacity(65);
+        assertEquals(4,shipWithCapacityGreaterThan.size());
     }
 }
