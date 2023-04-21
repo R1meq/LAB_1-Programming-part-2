@@ -5,6 +5,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class RoroShip extends CargoShip {
+    public static String HEADERS = "vehicles, ";
     private int vehicles;
 
     RoroShip(final int vehicles, final double tonnage,
@@ -37,5 +38,13 @@ public class RoroShip extends CargoShip {
                 "vehicles=" + vehicles
                 +
                 ") " + super.toString();
+    }
+
+    public String getHeaders(){
+        return HEADERS + super.getHeaders();
+    }
+
+    public String toCSV(){
+        return vehicles + ", " + super.toCSV();
     }
 }

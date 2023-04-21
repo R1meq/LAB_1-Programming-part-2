@@ -6,6 +6,7 @@ import lombok.Setter;
 @Getter
 public class CruiseShip extends Ship {
     public static final int AVERAGE_LOAD_TIME_FOR_PASSENGER = 5;
+    public static String HEADERS = "passengerCount, ";
     private int passengersCount;
 
     CruiseShip(final int passengersCount, final double id, final String name,
@@ -35,5 +36,14 @@ public class CruiseShip extends Ship {
                 "passengersCount=" + passengersCount
                 +
                 ") "  + super.toString();
+    }
+
+    @Override
+    public String getHeaders(){
+        return HEADERS + super.getHeaders();
+    }
+
+    public String toSCV(){
+        return passengersCount + ", " + super.toCSV();
     }
 }

@@ -5,6 +5,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class TunkerShip extends CargoShip {
+    public static String HEADERS = "volumeInBarrels, ";
     private double volumeInBarrels;
 
     TunkerShip(final double tonnage, final String typeOfCargo,
@@ -36,5 +37,12 @@ public class TunkerShip extends CargoShip {
                 "volumeinBarrels = " + volumeInBarrels
                 +
                 ") " + super.toString();
+    }
+    public String getHeaders(){
+        return HEADERS + super.getHeaders();
+    }
+
+    public String toCSV(){
+        return volumeInBarrels+ ", " + super.toCSV();
     }
 }
