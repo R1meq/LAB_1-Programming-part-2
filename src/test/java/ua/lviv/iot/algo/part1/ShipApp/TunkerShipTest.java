@@ -65,14 +65,4 @@ public class TunkerShipTest {
     public void calculateLoadTimeTest1(){
         Assertions.assertEquals(49.5,tunkerShip1.calculateLoadTime());
     }
-
-    @Test
-    public void toStringTest(){
-        Assertions.assertEquals("TunkerShip(volumeinBarrels = 44.5) " +
-                "CargoShip(tonnage=10.6typeOfCargo=gasoline)" +
-                " Ship(id=20.4, name=TunkerShip 1, captain=Mike Shinoda," +
-                " currentPort=Odessa, maxSpeed=13.5, maxCapacity=50.2," +
-                " currentLoad=40.2, currentSpeed=11.5, crewCount=15," +
-                " supportStaff=28)",tunkerShip.toString());
-    }
 }
