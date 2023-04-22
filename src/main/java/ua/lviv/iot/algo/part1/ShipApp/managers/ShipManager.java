@@ -1,4 +1,7 @@
-package ua.lviv.iot.algo.part1.ShipApp;
+package ua.lviv.iot.algo.part1.ShipApp.managers;
+
+import ua.lviv.iot.algo.part1.ShipApp.models.Ship;
+
 import java.util.ArrayList;
 import java.util.List;
 
