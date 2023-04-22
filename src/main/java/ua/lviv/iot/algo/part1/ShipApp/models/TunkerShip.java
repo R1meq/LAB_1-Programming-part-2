@@ -1,18 +1,20 @@
-package ua.lviv.iot.algo.part1.ShipApp;
+package ua.lviv.iot.algo.part1.ShipApp.models;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
 public class TunkerShip extends CargoShip {
+    public static final String HEADERS = "volumeInBarrels, ";
     private double volumeInBarrels;
 
-    TunkerShip(final double tonnage, final String typeOfCargo,
-               final double id, final String name, final String captain,
-               final String currentPort, final double maxSpeed,
-               final double maxCapacity, final double currentLoad,
-               final double currentSpeed, final int crewCount,
-               final int supportStaff, final double volumeInBarrels) {
+    public TunkerShip(final double tonnage, final String typeOfCargo,
+                      final double id, final String name, final String captain,
+                      final String currentPort, final double maxSpeed,
+                      final double maxCapacity, final double currentLoad,
+                      final double currentSpeed, final int crewCount,
+                      final int supportStaff, final double volumeInBarrels) {
         super(tonnage, typeOfCargo, id, name, captain, currentPort,
                 maxSpeed, maxCapacity, currentLoad, currentSpeed,
                 crewCount, supportStaff);
@@ -31,10 +33,18 @@ public class TunkerShip extends CargoShip {
 
     @Override
     public String toString() {
-        return  "TunkerShip("
+        return "TunkerShip("
                 +
                 "volumeinBarrels = " + volumeInBarrels
                 +
                 ") " + super.toString();
+    }
+
+    public String getHeaders() {
+        return HEADERS + super.getHeaders();
+    }
+
+    public String toCSV() {
+        return volumeInBarrels + ", " + super.toCSV();
     }
 }

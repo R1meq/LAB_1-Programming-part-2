@@ -1,19 +1,21 @@
-package ua.lviv.iot.algo.part1.ShipApp;
+package ua.lviv.iot.algo.part1.ShipApp.models;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
 public class RoroShip extends CargoShip {
+    public static final String HEADERS = "vehicles, ";
     private int vehicles;
 
-    RoroShip(final int vehicles, final double tonnage,
-             final String typeOfCargo, final double id,
-             final String name, final String captain,
-             final String currentPort, final double maxSpeed,
-             final double maxCapacity, final double currentLoad,
-             final double currentSpeed, final int crewCount,
-             final int supportStaff) {
+    public RoroShip(final int vehicles, final double tonnage,
+                    final String typeOfCargo, final double id,
+                    final String name, final String captain,
+                    final String currentPort, final double maxSpeed,
+                    final double maxCapacity, final double currentLoad,
+                    final double currentSpeed, final int crewCount,
+                    final int supportStaff) {
         super(tonnage, typeOfCargo, id, name, captain, currentPort,
                 maxSpeed, maxCapacity, currentLoad, currentSpeed,
                 crewCount, supportStaff);
@@ -37,5 +39,13 @@ public class RoroShip extends CargoShip {
                 "vehicles=" + vehicles
                 +
                 ") " + super.toString();
+    }
+
+    public String getHeaders() {
+        return HEADERS + super.getHeaders();
+    }
+
+    public String toCSV() {
+        return vehicles + ", " + super.toCSV();
     }
 }
