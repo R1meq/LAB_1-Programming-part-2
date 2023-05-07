@@ -30,7 +30,7 @@ public class CruiseShipController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<?> getById(final @PathVariable Integer id) {
+    public ResponseEntity<?> getById(final @PathVariable("id") Integer id) {
        if (cruiseShipService.findById(id) != null) {
            return ResponseEntity.ok(cruiseShipMapper.
                    mapToCruiseShipDto(cruiseShipService.findById(id)));
@@ -47,7 +47,7 @@ public class CruiseShipController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(final @PathVariable Integer id,
+    public ResponseEntity<?> update(final @PathVariable("id") Integer id,
                                     final @RequestBody CruiseShip entity) {
         if (cruiseShipService.findById(id) != null) {
             return ResponseEntity.
@@ -59,7 +59,9 @@ public class CruiseShipController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<CruiseShip> delete(final @PathVariable Integer id) {
+    public ResponseEntity<CruiseShip> delete(
+            final @PathVariable("id") Integer id) {
+
         return cruiseShipService.deleteShipById(id);
     }
 }

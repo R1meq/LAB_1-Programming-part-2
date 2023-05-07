@@ -24,8 +24,8 @@ public class CruiseShipService {
         return new LinkedList<CruiseShip>(shipHashMap.values());
     }
 
-    public CruiseShip findById(final Integer shipId) {
-        return shipHashMap.get(shipId);
+    public CruiseShip findById(final Integer id) {
+        return shipHashMap.get(id);
     }
 
     public CruiseShip createShip(final CruiseShip cruiseShip) {
@@ -34,27 +34,15 @@ public class CruiseShipService {
         return cruiseShip;
     }
 
-    public CruiseShip update(final Integer cruiseId,
-                             final CruiseShip updateShip) {
-        CruiseShip cruiseShip = shipHashMap.get(cruiseId);
-        cruiseShip.setIdOfShip(updateShip.getIdOfShip());
-        cruiseShip.setName(updateShip.getName());
-        cruiseShip.setCaptain(updateShip.getCaptain());
-        cruiseShip.setCurrentPort(updateShip.getCurrentPort());
-        cruiseShip.setMaxSpeed(updateShip.getMaxSpeed());
-        cruiseShip.setMaxCapacity(updateShip.getMaxCapacity());
-        cruiseShip.setCurrentLoad(updateShip.getCurrentLoad());
-        cruiseShip.setCurrentSpeed(updateShip.getCurrentSpeed());
-        cruiseShip.setCrewCount(updateShip.getCrewCount());
-        cruiseShip.setSupportStaff(updateShip.getSupportStaff());
-        cruiseShip.setPassengersCount(updateShip.getPassengersCount());
-        shipHashMap.put(cruiseId, cruiseShip);
+    public CruiseShip update(final Integer id, final CruiseShip updateShip) {
+        updateShip.setId(id);
+        shipHashMap.put(id,updateShip);
         return updateShip;
     }
 
-    public ResponseEntity<CruiseShip> deleteShipById(final Integer shipId) {
+    public ResponseEntity<CruiseShip> deleteShipById(final Integer id) {
         HttpStatus status = shipHashMap.
-                remove(shipId) == null ? HttpStatus.NOT_FOUND : HttpStatus.OK;
+                remove(id) == null ? HttpStatus.NOT_FOUND : HttpStatus.OK;
         return ResponseEntity.status(status).build();
     }
 }
