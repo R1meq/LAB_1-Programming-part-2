@@ -2,7 +2,6 @@ package ua.lviv.iot.algo.part1.ShipApp.models;
 
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import ua.lviv.iot.algo.part1.ShipApp.models.TunkerShip;
 
 public class TunkerShipTest {
     TunkerShip tunkerShip = new TunkerShip(10.6, "gasoline", 20.4, "TunkerShip 1",
@@ -17,7 +16,7 @@ public class TunkerShipTest {
     public void testConstructor() {
         Assertions.assertEquals(10.6, tunkerShip.getTonnage());
         Assertions.assertEquals("gasoline", tunkerShip.getTypeOfCargo());
-        Assertions.assertEquals(20.4, tunkerShip.getId());
+        Assertions.assertEquals(20.4, tunkerShip.getIdOfShip());
         Assertions.assertEquals("TunkerShip 1", tunkerShip.getName());
         Assertions.assertEquals("Mike Shinoda", tunkerShip.getCaptain());
         Assertions.assertEquals("Odessa", tunkerShip.getCurrentPort());
@@ -34,7 +33,7 @@ public class TunkerShipTest {
     public void testConstructor1() {
         Assertions.assertEquals(16.5, tunkerShip1.getTonnage());
         Assertions.assertEquals("crude oil", tunkerShip1.getTypeOfCargo());
-        Assertions.assertEquals(10.5, tunkerShip1.getId());
+        Assertions.assertEquals(10.5, tunkerShip1.getIdOfShip());
         Assertions.assertEquals("TunkerShip 2", tunkerShip1.getName());
         Assertions.assertEquals("Joe Hahn", tunkerShip1.getCaptain());
         Assertions.assertEquals("Lisbon", tunkerShip1.getCurrentPort());

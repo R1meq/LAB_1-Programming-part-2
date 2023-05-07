@@ -8,14 +8,16 @@ import lombok.Setter;
 public class CruiseShip extends Ship {
     public static final int AVERAGE_LOAD_TIME_FOR_PASSENGER = 5;
     public static final String HEADERS = "passengerCount, ";
+    private Integer id;
     private int passengersCount;
 
-    public CruiseShip(final int passengersCount, final double id, final String name,
+    public CruiseShip(final int passengersCount,
+                      final double idOfShip, final String name,
                       final String captain, final String currentPort,
                       final double maxSpeed, final double maxCapacity,
                       final double currentLoad, final double currentSpeed,
                       final int crewCount, final int supportStaff) {
-        super(id, name, captain, currentPort, maxSpeed, maxCapacity,
+        super(idOfShip, name, captain, currentPort, maxSpeed, maxCapacity,
                 currentLoad, currentSpeed, crewCount, supportStaff);
         this.passengersCount = passengersCount;
     }
