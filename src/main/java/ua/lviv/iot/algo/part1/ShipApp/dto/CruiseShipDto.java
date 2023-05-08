@@ -1,5 +1,10 @@
 package ua.lviv.iot.algo.part1.ShipApp.dto;
-import lombok.*;
+import lombok.Setter;
+import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Builder;
+
 
 @NoArgsConstructor
 @AllArgsConstructor

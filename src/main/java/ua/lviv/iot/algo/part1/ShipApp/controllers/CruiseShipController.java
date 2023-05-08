@@ -4,7 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import ua.lviv.iot.algo.part1.ShipApp.dto.CruiseShipDto;
 import ua.lviv.iot.algo.part1.ShipApp.mapper.CruiseShipMapper;
 import ua.lviv.iot.algo.part1.ShipApp.models.CruiseShip;
@@ -12,7 +20,7 @@ import ua.lviv.iot.algo.part1.ShipApp.service.CruiseShipService;
 
 import java.util.List;
 
-@RequestMapping("/cruiseShip")
+@RequestMapping("/cruiseShips")
 @RestController
 public class CruiseShipController {
 
@@ -30,7 +38,7 @@ public class CruiseShipController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<?> getById(final @PathVariable("id") Integer id) {
+    public ResponseEntity<CruiseShipDto> getById(final @PathVariable("id") Integer id) {
        if (cruiseShipService.findById(id) != null) {
            return ResponseEntity.ok(cruiseShipMapper.
                    mapToCruiseShipDto(cruiseShipService.findById(id)));
@@ -47,7 +55,7 @@ public class CruiseShipController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(final @PathVariable("id") Integer id,
+    public ResponseEntity<CruiseShipDto> update(final @PathVariable("id") Integer id,
                                     final @RequestBody CruiseShip entity) {
         if (cruiseShipService.findById(id) != null) {
             return ResponseEntity.
