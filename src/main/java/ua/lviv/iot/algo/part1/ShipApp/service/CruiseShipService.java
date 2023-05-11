@@ -1,6 +1,5 @@
 package ua.lviv.iot.algo.part1.ShipApp.service;
 
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,8 +22,8 @@ public class CruiseShipService {
         return new LinkedList<CruiseShip>(shipHashMap.values());
     }
 
-    public CruiseShip findById(final Integer shipId) {
-        return shipHashMap.get(shipId);
+    public CruiseShip findById(final Integer id) {
+        return shipHashMap.get(id);
     }
 
     public CruiseShip createShip(final CruiseShip cruiseShip) {
@@ -33,16 +32,16 @@ public class CruiseShipService {
         return cruiseShip;
     }
 
-    public CruiseShip update(final Integer cruiseId,
+    public CruiseShip update(final Integer id,
                              final CruiseShip updateShip) {
-        updateShip.setId(cruiseId);
-        shipHashMap.put(cruiseId,updateShip);
+        updateShip.setId(id);
+        shipHashMap.put(id,updateShip);
         return updateShip;
     }
 
-    public ResponseEntity<CruiseShip> deleteShipById(final Integer shipId) {
+    public ResponseEntity<CruiseShip> deleteShipById(final Integer id) {
         HttpStatus status = shipHashMap.
-                remove(shipId) == null ? HttpStatus.NOT_FOUND : HttpStatus.OK;
+                remove(id) == null ? HttpStatus.NOT_FOUND : HttpStatus.OK;
         return ResponseEntity.status(status).build();
     }
 }

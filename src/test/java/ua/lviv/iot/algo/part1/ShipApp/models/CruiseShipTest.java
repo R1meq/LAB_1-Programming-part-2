@@ -2,7 +2,6 @@ package ua.lviv.iot.algo.part1.ShipApp.models;
 
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import ua.lviv.iot.algo.part1.ShipApp.models.CruiseShip;
 
 public class CruiseShipTest {
     CruiseShip cruiseShip = new CruiseShip(150, 10.2, "CruiseShip 1",
@@ -17,7 +16,7 @@ public class CruiseShipTest {
     @Test
     public void testConstructor() {
         Assertions.assertEquals(150, cruiseShip.getPassengersCount());
-        Assertions.assertEquals(10.2, cruiseShip.getId());
+        Assertions.assertEquals(10.2, cruiseShip.getIdOfShip());
         Assertions.assertEquals("CruiseShip 1", cruiseShip.getName());
         Assertions.assertEquals("Cristiano Ronaldo", cruiseShip.getCaptain());
         Assertions.assertEquals("Hong Kong", cruiseShip.getCurrentPort());
@@ -32,7 +31,7 @@ public class CruiseShipTest {
     @Test
     public void testConstructor1() {
         Assertions.assertEquals(200, cruiseShip1.getPassengersCount());
-        Assertions.assertEquals(10.6, cruiseShip1.getId());
+        Assertions.assertEquals(10.6, cruiseShip1.getIdOfShip());
         Assertions.assertEquals("CruiseShip 2", cruiseShip1.getName());
         Assertions.assertEquals("Mr Beast", cruiseShip1.getCaptain());
         Assertions.assertEquals("Singapore", cruiseShip1.getCurrentPort());
