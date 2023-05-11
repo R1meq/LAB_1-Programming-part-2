@@ -2,7 +2,6 @@ package ua.lviv.iot.algo.part1.ShipApp.models;
 
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import ua.lviv.iot.algo.part1.ShipApp.models.RoroShip;
 
 public class RoroShipTest {
     RoroShip roroShip = new RoroShip(15, 12.7, "cars", 11.6, "ROROShip 1",
@@ -18,7 +17,7 @@ public class RoroShipTest {
         Assertions.assertEquals(15, roroShip.getVehicles());
         Assertions.assertEquals(12.7, roroShip.getTonnage());
         Assertions.assertEquals("cars", roroShip.getTypeOfCargo());
-        Assertions.assertEquals(11.6, roroShip.getId());
+        Assertions.assertEquals(11.6, roroShip.getIdOfShip());
         Assertions.assertEquals("ROROShip 1", roroShip.getName());
         Assertions.assertEquals(" Brad Delson", roroShip.getCaptain());
         Assertions.assertEquals("LA", roroShip.getCurrentPort());
@@ -35,7 +34,7 @@ public class RoroShipTest {
         Assertions.assertEquals(23, roroShip1.getVehicles());
         Assertions.assertEquals(15.2, roroShip1.getTonnage());
         Assertions.assertEquals("trucks", roroShip1.getTypeOfCargo());
-        Assertions.assertEquals(12.7, roroShip1.getId());
+        Assertions.assertEquals(12.7, roroShip1.getIdOfShip());
         Assertions.assertEquals("ROROShip 2", roroShip1.getName());
         Assertions.assertEquals(" Dave Farrell", roroShip1.getCaptain());
         Assertions.assertEquals("Boston", roroShip1.getCurrentPort());

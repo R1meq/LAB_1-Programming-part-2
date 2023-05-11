@@ -2,7 +2,6 @@ package ua.lviv.iot.algo.part1.ShipApp.models;
 
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import ua.lviv.iot.algo.part1.ShipApp.models.ContainerShip;
 
 public class ConteinerShipTest {
     ContainerShip containerShip = new ContainerShip(2, 2, "raw materials",
@@ -18,7 +17,7 @@ public class ConteinerShipTest {
         Assertions.assertEquals(2, containerShip.getContainers());
         Assertions.assertEquals(2, containerShip.getTonnage());
         Assertions.assertEquals("raw materials", containerShip.getTypeOfCargo());
-        Assertions.assertEquals(15.6, containerShip.getId());
+        Assertions.assertEquals(15.6, containerShip.getIdOfShip());
         Assertions.assertEquals("ContainerShip 1", containerShip.getName());
         Assertions.assertEquals("Rob Bourdon", containerShip.getCaptain());
         Assertions.assertEquals("Lviv", containerShip.getCurrentPort());
@@ -35,7 +34,7 @@ public class ConteinerShipTest {
         Assertions.assertEquals(2, containerShip1.getContainers());
         Assertions.assertEquals(2, containerShip1.getTonnage());
         Assertions.assertEquals("foodstuffs", containerShip1.getTypeOfCargo());
-        Assertions.assertEquals(18.7, containerShip1.getId());
+        Assertions.assertEquals(18.7, containerShip1.getIdOfShip());
         Assertions.assertEquals("ContainerShip 2", containerShip1.getName());
         Assertions.assertEquals("Tom Cruise", containerShip1.getCaptain());
         Assertions.assertEquals("Shanghai", containerShip1.getCurrentPort());
